@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ProductsList from '../views/ProductsList.vue'
-import { tokenStorageName } from '../helpers/constants'
+import { TOKEN_STORAGE_NAME } from '../helpers/constants'
 
 Vue.use(VueRouter)
 
@@ -29,7 +29,7 @@ const router = new VueRouter({
 // ELIMINAR
 // Route guard
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem(tokenStorageName)
+  const token = localStorage.getItem(TOKEN_STORAGE_NAME)
 
   // Si la ruta requiere autenticación
   if (to.matched.some(record => record.meta.requiresAuth)) {

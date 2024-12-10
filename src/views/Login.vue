@@ -76,39 +76,39 @@
 
 <script>
 import axios from 'axios'
-import { tokenStorageName, postLoginEndpoint } from '../helpers/constants.js'
+import { TOKEN_STORAGE_NAME, POST_LOGIN_ENDPOINT } from '../helpers/constants.js'
 import { Toast } from 'bootstrap'
 
 export default {
   name: 'Login',
   data() {
     return {
-      // initial state
+      // Initial state
       username: 'mor_2314',
       password: '83r5^_',
       errorMessage: '',
       loading: false,
-      errorToastMessage: '',
       errorToast: null,
+      errorToastMessage: '',
     }
   },
   mounted() {
-    // initial toast setup
+    // Initial toast setup
     const toastEl = document.getElementById('liveToast')
     if (toastEl) {
       this.errorToast = new Toast(toastEl, { autohide: true })
     }
   },
   methods: {
+    // TOAST HANDLING
     showErrorToast(message) {
       this.errorToastMessage = message
       if (this.errorToast) {
         this.errorToast.show()
       }
     },
+    // AUTHENTICATION
     async onSignIn () {
-      // AUTHENTICATION
-
       const resetErrorMessage = () => {
         this.errorToastMessage = '';
       };
@@ -136,7 +136,7 @@ export default {
 
       // API Call and token handling
       try {
-        const response = await axios.post(postLoginEndpoint, {
+        const response = await axios.post(POST_LOGIN_ENDPOINT, {
           username: this.username,
           password: this.password
         });
@@ -144,7 +144,7 @@ export default {
         const { token } = response.data;
 
         if (token) {
-          localStorage.setItem(tokenStorageName, token)
+          localStorage.setItem(TOKEN_STORAGE_NAME, token)
           this.$router.push('/')
         } else {
           this.showErrorToast('Invalid response from server. Please try again.')
@@ -165,12 +165,5 @@ export default {
 </script>
 
 <style scoped>
-.form-signin {
-  width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
-
-
+/* CSS RESET */
 </style>

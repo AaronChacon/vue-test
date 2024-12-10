@@ -1,6 +1,8 @@
 <template>
   <div class="product-item">
-    <span class="icono favorite"></span>
+    <!-- Add click event to call onFavoriteClicked -->
+     <!-- Add the dinamic class to active the favorite icon -->
+    <span class="icono favorite" :class="{ selected: product.favorite }" @click="onFavoriteClicked"></span>
     <img :src="product.image" :alt="product.title" class="product-image" />
     <h3 class="product-title">{{ product.title }}</h3>
     <p class="product-description">{{ product.description }}</p>
@@ -9,20 +11,21 @@
 </template>
 
 <script>
-export default {
-  name: 'ProductCard',
-  props: ['product'],
-  data () {
-    return {
+  import { PRODUCT_FAVORITE_CLICKED_EVENT_NAME } from '@/helpers/constants';
 
-    }
-  },
-  methods: {
-    onFavoriteClicked () {
-      this.$emit('productFavoriteClicked', this.product.id)
+  export default {
+    name: 'ProductCard',
+    props: ['product'],
+    data () {
+      return {}
+    },
+    methods: {
+      onFavoriteClicked () {
+        // use the constant for the name of the event
+        this.$emit(PRODUCT_FAVORITE_CLICKED_EVENT_NAME, this.product.id)
+      }
     }
   }
-}
 </script>
 
 <style scoped>
