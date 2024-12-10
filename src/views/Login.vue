@@ -59,7 +59,7 @@
     </main>
 
     <div class="toast-container position-fixed top-0 end-0 p-3">
-      <!-- Toast que se mostrará en caso de error -->
+      <!-- This toast will be shown when an error occurs -->
       <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
           <strong class="me-auto">Error</strong>
@@ -157,8 +157,6 @@ export default {
       } finally {
         this.loading = false;
       }
-
-      // alert('Ooops! Nothing happened!')
     }
   }
 }

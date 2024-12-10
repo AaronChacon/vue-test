@@ -8,8 +8,7 @@
         <button 
           class="btn btn-outline-danger" 
           type="button" 
-          @click="logout"
-          >Logout</button>
+          @click="logout">Logout</button>
       </div>
     </nav>
 
@@ -85,9 +84,8 @@ export default {
       })
     },
     logout () {
-      // Clear the token from the local storage
+      // Delete the token from the local storage and redirect to the login page
       localStorage.removeItem('token')
-      // Redirect to the login page
       this.$router.push('/login')
     }
   }
