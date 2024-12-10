@@ -1,3 +1,7 @@
+## 
+
+![Login - aaronch.dev](src/assets/login.png)
+
 ¡Bienvenido a la prueba técnica! En ViveLibre, trabajamos con un stack tecnológico que abarca Vue.js, Javascript, TypeScript y diversas tecnologías de comunicación en tiempo real como SIP, Asterisk, SSE (Server-Sent Events), y WebSockets. Buscamos un desarrollador frontend con una sólida comprensión de JavaScript y Vue para reforzar nuestro equipo.
 
 La prueba técnica consta de dos partes, y su objetivo es evaluar tus habilidades para trabajar con tecnologías frontend modernas, identificar y corregir errores, y desarrollar soluciones funcionales de manera eficiente.
